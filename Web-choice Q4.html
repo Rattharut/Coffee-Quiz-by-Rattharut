@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Quiz by North</title>
+    <link rel="stylesheet" href="Reset.css">
+    <link rel="stylesheet" href="Main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Englebert&family=Playpen+Sans+Thai:wght@100..800&display=swap" rel="stylesheet"><link
+    rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+
+    href="https://fonts.googleapis.com/css2?family=Sriracha&display=swap" rel="stylesheet">
+    
+</head>
+
+<body class="container">
+
+<div class="Main">
+
+<h1 class="Quiz-main">Coffee Quiz</h1> 
+<p class="The-Quiz">4. ในไทย หากสั่งเมนู Espresso (เอสเพรสโซ่) แบบเย็น มักจะได้กาแฟที่ผสมกับอะไร?</p>
+
+  <div class="quiz-block blockEf">
+    <input type="radio" id="1" name="ตัวเลือก"/>
+    <label for="1">น้ำแข็งเปล่าๆ</label>
+  </div>
+
+  <div class="quiz-block blockEf">
+    <input type="radio" id="2" name="ตัวเลือก" class="correct"/>
+    <label for="2">นมสดและนมข้นหวาน</label>
+  </div>
+
+  <div class="quiz-block blockEf">
+    <input type="radio" id="3" name="ตัวเลือก"/>
+    <label for="3">ช็อกโกแลตไซรัป</label>
+  </div>
+
+  <div class="quiz-block  blockEf">
+    <input type="radio" id="4" name="ตัวเลือก"/>
+    <label for="4">น้ำผลไม้</label>
+  </div>
+
+  <a a class="button" href="Web-choice Q5.html">Next</a>
+
+<p class="Nub">4 of 10 questions</p>
+
+</div>
+
+<script>
+  document.querySelectorAll('input[name="ตัวเลือก"]').forEach(input => {
+    input.addEventListener('change', function() {
+      
+      if (this.classList.contains('correct')) {
+        this.classList.add('is-correct');
+      } else {
+        this.classList.add('is-wrong');
+        
+        document.querySelector('.correct').classList.add('is-correct');
+      }
+      
+      document.querySelectorAll('input[name="ตัวเลือก"]').forEach(el => el.disabled = true);
+    });
+  });
+</script>
+
+<script>
+  document.querySelectorAll('input[name="ตัวเลือก"]').forEach(input => {
+    input.addEventListener('change', function() {
+      
+      if (this.classList.contains('correct')) {
+        this.classList.add('is-correct');
+        
+        
+        let currentScore = parseInt(localStorage.getItem('quizScore')) || 0;
+        localStorage.setItem('quizScore', currentScore + 1);
+      } else {
+        this.classList.add('is-wrong');
+        document.querySelector('.correct').classList.add('is-correct');
+      }
+
+     
+      document.querySelectorAll('input[name="ตัวเลือก"]').forEach(el => el.disabled = true);
+    });
+  });
+</script>
+
+</body>
+</html>
