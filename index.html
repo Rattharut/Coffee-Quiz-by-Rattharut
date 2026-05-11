@@ -48,42 +48,23 @@
 
 <script>
   localStorage.setItem('quizScore', 0);
-  document.querySelectorAll('input[name="ตัวเลือก"]').forEach(input => {
-    input.addEventListener('change', function() {
-      
-      if (this.classList.contains('correct')) {
-        this.classList.add('is-correct');
-      } else {
-        this.classList.add('is-wrong');
-        
-        document.querySelector('.correct').classList.add('is-correct');
-      }
-      
-      document.querySelectorAll('input[name="ตัวเลือก"]').forEach(el => el.disabled = true);
-    });
-  });
-</script> 
 
-<script>
   document.querySelectorAll('input[name="ตัวเลือก"]').forEach(input => {
     input.addEventListener('change', function() {
       
       if (this.classList.contains('correct')) {
-        this.classList.add('is-correct');
-        
+        this.classList.add('is-correct'); 
         
         let currentScore = parseInt(localStorage.getItem('quizScore')) || 0;
         localStorage.setItem('quizScore', currentScore + 1);
       } else {
-        this.classList.add('is-wrong');
-        document.querySelector('.correct').classList.add('is-correct');
+        this.classList.add('is-wrong'); // สีแดง
+        document.querySelector('.correct').classList.add('is-correct'); 
       }
 
-     
       document.querySelectorAll('input[name="ตัวเลือก"]').forEach(el => el.disabled = true);
     });
-  }); 
-
+  });
 </script>
 
 </body>
