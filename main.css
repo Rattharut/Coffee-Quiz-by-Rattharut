@@ -125,7 +125,6 @@ margin-bottom: 16px;
 border-radius: 8px;
 }
 
-/* จอเล็กมาก / มือถือ */
 @media (max-width: 480px) {
     .container { padding: 12px; }
     .Main { border-radius: 12px; }
@@ -135,14 +134,12 @@ border-radius: 8px;
     .button { padding: 12px 18px; width: 100%; }
 }
 
-/* จอสัมผัสที่ไม่มี hover จริง (มือถือ/แท็บเล็ต) ปิด hover effect เพื่อไม่ให้ค้าง */
 @media (hover: none) {
     .blockEf:hover {
         box-shadow: none;
     }
 }
 
-/* รองรับการหมุนจอแนวนอนบนมือถือที่จอเตี้ย */
 @media (max-height: 480px) and (orientation: landscape) {
     .container { padding: 10px; align-items: flex-start; }
     .Main { padding: 12px 20px; }
