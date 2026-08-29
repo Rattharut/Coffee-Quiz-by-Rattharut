@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Coffee Quiz by Rattharut</title>
+    <link rel="stylesheet" href="Reset.css">
+    <link rel="stylesheet" href="main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Englebert&family=Playpen+Sans+Thai:wght@100..800&display=swap" rel="stylesheet"><link
+    rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+
+    href="https://fonts.googleapis.com/css2?family=Sriracha&display=swap" rel="stylesheet">
+    
+</head>
+
+<body class="container">
+
+<div class="Main">
+  <h1 class="Quiz-main">Coffee Quiz</h1>
+  <img src="./image/Yui eat coffee.jpg" alt="Photo Yui" class="Photo">
+
+  <p class="The-Quiz">คุณได้คะแนนทั้งหมด:</p>
+  <h2 id="displayScore" style="font-size: 64px; color: #432818;">0</h2>
+  <p>/ 10 คะแนน</p>
+  
+  <a class="button" href="index.html" onclick="localStorage.setItem('quizScore', 0)">Play Again</a>
+</div>
+
+<script>
+  const finalScore = localStorage.getItem('quizScore') || 0;
+  document.getElementById('displayScore').innerText = finalScore;
+</script>
+
+<script>
+  // เปิดหน้ามาให้เริ่มมองจากกลางหน้าเสมอ
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+
+  function centerView() {
+    const middleY = document.documentElement.scrollHeight / 2 - window.innerHeight / 2;
+    window.scrollTo({ top: Math.max(0, middleY), behavior: 'auto' });
+  }
+
+  window.addEventListener('DOMContentLoaded', centerView);
+  window.addEventListener('load', centerView);  // เผื่อรูปกับฟอนต์โหลดเสร็จทีหลังแล้วความสูงเปลี่ยน
+</script>
+
+</body>
+</html>

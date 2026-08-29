@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Quiz by North</title>
+    <link rel="stylesheet" href="Reset.css">
+    <link rel="stylesheet" href="main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Englebert&family=Playpen+Sans+Thai:wght@100..800&display=swap" rel="stylesheet"><link
+    rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+
+    href="https://fonts.googleapis.com/css2?family=Sriracha&display=swap" rel="stylesheet">
+    
+</head>
+
+<body class="container">
+
+<div class="Main">
+
+<h1 class="Quiz-main">Coffee Quiz</h1> 
+<p class="The-Quiz">9. แบรนด์กาแฟในข้อใดที่สนับสนุนการใช้เมล็ดกาแฟจากเกษตรกรไทยเป็นหลัก?</p>
+
+  <div class="quiz-block blockEf">
+    <input type="radio" id="1" name="ตัวเลือก"/>
+    <label for="1">Starbucks</label>
+  </div>
+
+  <div class="quiz-block blockEf">
+    <input type="radio" id="2" name="ตัวเลือก" class="correct"/>
+    <label for="2">Café Amazon หรือ พันธุ์ไทย</label>
+  </div>
+
+  <div class="quiz-block blockEf">
+    <input type="radio" id="3" name="ตัวเลือก"/>
+    <label for="3">The Coffee Bean</label>
+  </div>
+
+  <div class="quiz-block  blockEf">
+    <input type="radio" id="4" name="ตัวเลือก"/>
+    <label for="4">Costa Coffee</label>
+  </div>
+
+  <a class="button" href="Web-choice Q10.html">Next</a>
+
+<p class="Nub">9 of 10 questions</p>
+
+</div>
+
+<script>
+  document.querySelectorAll('input[name="ตัวเลือก"]').forEach(input => {
+    input.addEventListener('change', function() {
+
+      if (this.classList.contains('correct')) {
+        this.classList.add('is-correct');
+        
+        let currentScore = parseInt(localStorage.getItem('quizScore')) || 0;
+        localStorage.setItem('quizScore', currentScore + 1);
+      } else {
+        this.classList.add('is-wrong');
+        document.querySelector('.correct').classList.add('is-correct');
+      }
+
+      document.querySelectorAll('input[name="ตัวเลือก"]').forEach(el => el.disabled = true);
+    });
+  });
+</script>
+
+<script>
+  // เปิดหน้ามาให้เริ่มมองจากกลางหน้าเสมอ
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+
+  function centerView() {
+    const middleY = document.documentElement.scrollHeight / 2 - window.innerHeight / 2;
+    window.scrollTo({ top: Math.max(0, middleY), behavior: 'auto' });
+  }
+
+  window.addEventListener('DOMContentLoaded', centerView);
+  window.addEventListener('load', centerView);  // เผื่อรูปกับฟอนต์โหลดเสร็จทีหลังแล้วความสูงเปลี่ยน
+</script>
+
+</body>
+</html>
